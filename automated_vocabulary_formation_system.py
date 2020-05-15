@@ -105,6 +105,10 @@ def upload_vocabulary():
     for key, value in vocabulary['lexems'].items():
       lexems_tree.insert("", "end", text="%s" % key, values=('%s' % value))
 
+def info():
+    messagebox.askquestion("Help", "1. Введите текст.\n"
+                                   "2. Нажмите кнопку 'Process'.\n", type='ok')
+
 root = tk.Tk()
 
 
@@ -139,6 +143,7 @@ save_vocabulary_button.grid(row=1, column=2)
 
 upload_from_file_button = Button(frame, text='Upload from file', command=upload_vocabulary)
 upload_from_file_button.grid(row=1, column=3)
+Button(text="info?", width=10, command=info).pack()
 
 tree["columns"]=("one","two")
 
